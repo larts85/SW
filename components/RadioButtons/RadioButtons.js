@@ -10,6 +10,7 @@ const Buttons = (props) => {
     setIsSelected({
       radio1: false,
       radio2: false,
+      radio3: false,
       [radio]: true,
     });
   };

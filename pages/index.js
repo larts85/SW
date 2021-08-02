@@ -1,72 +1,21 @@
 import Head from "next/head";
 import Link from "next/link";
 import React, { useState } from "react";
-import Button from "../components/Buttons/Buttons";
-import RadioButton from "../components/RadioButtons/RadioButtons";
+import Footer from "../components/Footer/Footer";
+import Header from "../components/Header/Header";
 
 export default function Home() {
-  const [isSelected, setIsSelected] = useState({
-    radio1: false,
-    radio2: false,
-  });
-
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <header className="flex items-center justify-center border-black h-16 w-full bg-gray-200">
-        <h1 classame="text-6xl font-bold">
-          Welcome to{" "}
-          <a className="text-secondary-base font-bold" href="#" target="_blank">
-            Next.js{" "}
-          </a>
-          with{" "}
-          <a className="text-secondary-base font-bold" href="#">
-            Tailwinds!
-          </a>
-        </h1>
-      </header>
-
+      <Header />
       <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center gap-5">
-        <Button left>
-          <Link href="#">
-            <a>Button</a>
-          </Link>
-        </Button>
-        <Button type="secondary" right left>
-          <Link href="#">
-            <a>Button</a>
-          </Link>
-        </Button>
-        <Button type="text" right>
-          <Link href="#">
-            <a>
-              <span>Button</span>
-            </a>
-          </Link>
-        </Button>
-        {Object.keys(isSelected).map((key, index) => (
-          <React.Fragment key={index}>
-            <RadioButton
-              radio={key}
-              isSelected={isSelected}
-              setIsSelected={setIsSelected}
-            />
-          </React.Fragment>
-        ))}
+        <h1>Provisional components for Sancrisoft Web Site</h1>
       </main>
-      <footer className="flex items-center justify-center w-full h-16 border-t bg-gray-200">
-        <a
-          className="flex items-center justify-center"
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          rel="noopener noreferrer"
-        >
-          Powered by{" "}
-          <img src="/vercel.svg" alt="Vercel Logo" className="h-4 ml-2" />
-        </a>
-      </footer>
+      <Footer />
     </div>
   );
 }
