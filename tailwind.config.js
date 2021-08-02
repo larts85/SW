@@ -45,7 +45,13 @@ module.exports = {
         gray400: "#F4F4BE",
       },
     },
-    extend: {},
+    extend: {
+      maxWidth: {
+        readable: "65ch",
+        tinyRead: "25ch",
+        mediunRead: "45ch",
+      },
+    },
   },
   variants: {
     extend: {
