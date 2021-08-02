@@ -1,8 +1,15 @@
 import Head from "next/head";
 import Link from "next/link";
+import React, { useState } from "react";
 import Button from "../components/Buttons/Buttons";
+import RadioButton from "../components/RadioButtons/RadioButtons";
 
 export default function Home() {
+  const [isSelected, setIsSelected] = useState({
+    radio1: false,
+    radio2: false,
+  });
+
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">
       <Head>
@@ -12,11 +19,11 @@ export default function Home() {
       <header className="flex items-center justify-center border-black h-16 w-full bg-gray-200">
         <h1 classame="text-6xl font-bold">
           Welcome to{" "}
-          <a className="text-blue-600" href="#" target="_blank">
+          <a className="text-secondary-base font-bold" href="#" target="_blank">
             Next.js{" "}
           </a>
           with{" "}
-          <a className="text-blue-600" href="#">
+          <a className="text-secondary-base font-bold" href="#">
             Tailwinds!
           </a>
         </h1>
@@ -40,8 +47,16 @@ export default function Home() {
             </a>
           </Link>
         </Button>
+        {Object.keys(isSelected).map((key, index) => (
+          <React.Fragment key={index}>
+            <RadioButton
+              radio={key}
+              isSelected={isSelected}
+              setIsSelected={setIsSelected}
+            />
+          </React.Fragment>
+        ))}
       </main>
-
       <footer className="flex items-center justify-center w-full h-16 border-t bg-gray-200">
         <a
           className="flex items-center justify-center"
